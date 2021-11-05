@@ -1,5 +1,5 @@
-//I DO 1
-public abstract class Vehicles {
+//I DO 2
+public abstract class Vehicles implements Comparable<Vehicles> {
 	
 	private String name;
 	private String noplate;
@@ -55,5 +55,9 @@ public abstract class Vehicles {
 
 	public abstract double calclulateDistance();
 	//fuelConsumption & electricConsumption
-	public abstract double calculateConsumption();	
+	public abstract double calculateConsumption();
+	
+	public String toString() {
+		return "\n Name: " + getName() + "Number Plate: " + getNoplate() + "\nSpeed: " + getSpeed() +" km" + "\nTime travelled: " + getTime() + " hour(s)";
+	}
 }

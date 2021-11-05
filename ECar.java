@@ -1,4 +1,4 @@
-//I DO 1
+//I DO 2
 public class ECar extends Vehicles {
     
     //ECar - electric car
@@ -40,6 +40,20 @@ public class ECar extends Vehicles {
     }
  
     public String toString() {
-        return "\nName: " + getName() + "\nNumber plate: " + getNoplate() + "\nSpeed: " + getSpeed() + " km" + "\nTime travelled: " + getTime() + " hour(s)" + "\nBattery: " + getBattery() + " V" + "\nCharging time: " + getChargingtime() + " ah" + "\nDistance travelled: " + calclulateDistance() + " km/h" + "\nElectric consumption: " + calculateConsumption() + " kWh"; 
+        return "\nName: " + getName() + "\nNumber plate: " + getNoplate() + "\nSpeed: " + getSpeed() + " km" + "\nTime travelled: " + getTime() + " hour(s)" + "\nBattery: " + getBattery() + " V" + "\nCharging time: " + getChargingtime() + " ah" + "\nDistance travelled: " + calclulateDistance() + " km/h" + "\nElectric consumption: " + calculateConsumption() + " kWh" + "\n"; 
      }
+
+     public int compareTo(Vehicles v){
+        if(this.getClass().equals(v.getClass())){       //the class we in, is compared to the class we passing in 
+            ECar e = (ECar)v;                           //Casting the classes since they match(equal) 
+            if(this.calclulateDistance() == e.calclulateDistance())
+                return 0;    //if the methods are equal return a 0
+            else if(this.calclulateDistance()<e.calclulateDistance())
+                return -1;  //if the calling method is less than it should return a -1
+            else 
+                return 1;  //else it should return a 0
+        }
+        else 
+            return this.getClass().getName().compareTo(v.getClass().getName());
+    }     
 }
